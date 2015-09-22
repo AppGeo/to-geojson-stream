@@ -1,0 +1,28 @@
+{
+  "name": "to-geojson-stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "bin": {
+    "to-geojson": "./bin.js"
+  },
+  "author": "Calvin W. Metcalf <calvin.metcalf@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "csv-parser": "^1.7.0",
+    "jsonstream3": "^3.0.0",
+    "kml-stream": "^1.1.0",
+    "proj4geojson": "^1.1.0",
+    "readable-stream": "^2.0.2",
+    "shp-stream": "^1.0.0",
+    "yargs": "^3.25.0",
+    "yauzl": "^2.3.1"
+  },
+  "devDependencies": {
+    "geojsonhint": "^1.1.0"
+  }
+}
