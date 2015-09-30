@@ -27,6 +27,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:calvinmetcalf/to-geojson-stream.git"
+    "url": "git@github.com:appgeo/to-geojson-stream.git"
   }
 }
