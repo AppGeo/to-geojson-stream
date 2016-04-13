@@ -313,7 +313,7 @@ function makeStream(args, shpnameResolve, shpnameReject) {
   }
   function makeObject(path, noFile) {
     if (noFile) {
-      return Promise.resolve(new Proj4Geojson(path, true));
+      return Promise.resolve(new Proj4Geojson(path));
     }
     return new Promise(function (yes) {
       fs.readFile(path, {encoding: 'utf8'}, function (err, file) {
@@ -324,7 +324,7 @@ function makeStream(args, shpnameResolve, shpnameReject) {
             }
           });
         }
-        yes(new Proj4Geojson(file, true));
+        yes(new Proj4Geojson(file));
       });
     });
   }
