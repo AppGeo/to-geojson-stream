@@ -17,7 +17,9 @@ B="$(./bin.js -f test/test.zip -n b.csv)"
 
 if [[ "$A" = "$B" ]]
 then
+  echo fail
   exit 1
 else
+  echo success
   exit 0
 fi
