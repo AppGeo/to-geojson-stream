@@ -334,10 +334,14 @@ function makeStream(args, shpnameResolve, shpnameReject) {
       objectMode: true,
       transform: function (chunk, _, next) {
         var self = this;
+        if (!chunk.geometry) {
+          this.push(chunk);
+          return next();
+        }
         obj.then(function (transformer) {
           self.push(transformer.feature(chunk));
           next();
-        });
+        }).catch(next);
       }
     });
   }
