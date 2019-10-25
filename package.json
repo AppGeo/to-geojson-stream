@@ -14,11 +14,13 @@
   "dependencies": {
     "colors": "^1.1.2",
     "csv-parser": "^1.7.0",
+    "debug": "^4.1.1",
     "jsonstream3": "^3.0.0",
     "kml-stream": "^1.1.0",
     "proj4geojson": "^1.1.0",
     "readable-stream": "^2.0.2",
     "shp-stream": "^1.0.0",
+    "wkx": "^0.4.8",
     "yargs": "^14.1.0",
     "yauzl": "^2.3.1"
   },
