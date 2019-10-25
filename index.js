@@ -11,8 +11,10 @@ var shapefile = require('shp-stream').reader;
 var yauzl = require('yauzl');
 var Proj4Geojson = require('proj4geojson');
 var Kml = require('kml-stream');
+var wkx = require('wkx');
 var easyTypes = ['.geojson', '.kml', '.csv', '.json'];
 var allTypes = easyTypes.concat('.shp');
+var debug = require('debug')('to-geojson-stream');
 module.exports = function () {
 
   var shpnameResolve, shpnameReject;
@@ -99,6 +101,13 @@ function makeStream(args, shpnameResolve, shpnameReject) {
             type: 'point',
             coordinates: [chunk.x, chunk.y]
           };
+        } else if (chunk.the_geom && chunk.the_geom_webmercator) {
+          // probably from carto
+          try {
+            out.geometry = wkx.Geometry.parse(Buffer.from(chunk.the_geom, 'hex')).toGeoJSON();
+          } catch (e) {
+            debug(e);
+          }
         }
         this.push(out);
         next();
